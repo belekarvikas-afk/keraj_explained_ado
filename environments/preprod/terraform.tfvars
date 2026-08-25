@@ -48,13 +48,13 @@ vms = {
     nic_subnet_name = "frontend-subnet-dev"
     nic_vnet_name   = "vnet-VSR"
     vm_name         = "frontend-vm-1-dev"
-    vm_size         = "Standard_B1s"
+    vm_size         = "Standard_D2ps_v6"
     admin_username  = "devopsadmin"
     key_vault_name  = "kv-VSR-123"
     secret_name     = "admin-password"
     image_publisher = "Canonical"
     image_offer     = "0001-com-ubuntu-server-jammy"
-    image_sku       = "22_04-lts"
+    image_sku       = "D2ps_v6"
     image_version   = "latest"
   }
   frontend_2 = {
@@ -64,13 +64,13 @@ vms = {
     nic_subnet_name = "frontend-subnet-dev"
     nic_vnet_name   = "vnet-VSR"
     vm_name         = "frontend-vm-2-dev"
-    vm_size         = "Standard_B1s"
+    vm_size         = "Standard_D2ps_v6"
     admin_username  = "devopsadmin"
     key_vault_name  = "kv-VSR-123"
     secret_name     = "admin-password"
     image_publisher = "Canonical"
     image_offer     = "0001-com-ubuntu-server-jammy"
-    image_sku       = "22_04-lts"
+    image_sku       = "D2ps_v6"
     image_version   = "latest"
   }
 }
