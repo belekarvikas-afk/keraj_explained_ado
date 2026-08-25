@@ -40,47 +40,47 @@ subnets = {
 }
 
 
-vms = {
-  frontend_1 = {
-    nic_name        = "frontend-vm-nic-1-dev"
-    location        = "centralindia"
-    rg_name         = "rg-VSR"
-    nic_subnet_name = "frontend-subnet-dev"
-    nic_vnet_name   = "vnet-VSR"
-    vm_name         = "frontend-vm-1-dev"
-    vm_size         = "Standard_D2ps_v6"
-    admin_username  = "devopsadmin"
-    key_vault_name  = "kv-VSR-123"
-    secret_name     = "admin-password"
-    image_publisher = "Canonical"
-    image_offer     = "0001-com-ubuntu-server-jammy"
-    image_sku       = "D2ps_v6"
-    image_version   = "latest"
-  }
-  frontend_2 = {
-    nic_name        = "frontend-vm-nic-2-dev"
-    location        = "centralindia"
-    rg_name         = "rg-VSR"
-    nic_subnet_name = "frontend-subnet-dev"
-    nic_vnet_name   = "vnet-VSR"
-    vm_name         = "frontend-vm-2-dev"
-    vm_size         = "Standard_D2ps_v6"
-    admin_username  = "devopsadmin"
-    key_vault_name  = "kv-VSR-123"
-    secret_name     = "admin-password"
-    image_publisher = "Canonical"
-    image_offer     = "0001-com-ubuntu-server-jammy"
-    image_sku       = "D2ps_v6"
-    image_version   = "latest"
-  }
-}
+# vms = {
+#   frontend_1 = {
+#     nic_name        = "frontend-vm-nic-1-dev"
+#     location        = "centralindia"
+#     rg_name         = "rg-VSR"
+#     nic_subnet_name = "frontend-subnet-dev"
+#     nic_vnet_name   = "vnet-VSR"
+#     vm_name         = "frontend-vm-1-dev"
+#     vm_size         = "Standard_D2ps_v6"
+#     admin_username  = "devopsadmin"
+#     key_vault_name  = "kv-VSR-123"
+#     secret_name     = "admin-password"
+#     image_publisher = "Canonical"
+#     image_offer     = "0001-com-ubuntu-server-jammy"
+#     image_sku       = "D2ps_v6"
+#     image_version   = "latest"
+#   }
+#   frontend_2 = {
+#     nic_name        = "frontend-vm-nic-2-dev"
+#     location        = "centralindia"
+#     rg_name         = "rg-VSR"
+#     nic_subnet_name = "frontend-subnet-dev"
+#     nic_vnet_name   = "vnet-VSR"
+#     vm_name         = "frontend-vm-2-dev"
+#     vm_size         = "Standard_D2ps_v6"
+#     admin_username  = "devopsadmin"
+#     key_vault_name  = "kv-VSR-123"
+#     secret_name     = "admin-password"
+#     image_publisher = "Canonical"
+#     image_offer     = "0001-com-ubuntu-server-jammy"
+#     image_sku       = "D2ps_v6"
+#     image_version   = "latest"
+#   }
+# }
 
 
-key_vaults = {
-  kv1 = {
-    name        = "kv-VSR-123"
-    location    = "centralindia"
-    rg_name     = "rg-VSR"
-    secret_name = "admin-password"
-  }
-}
+# key_vaults = {
+#   kv1 = {
+#     name        = "kv-VSR-123"
+#     location    = "centralindia"
+#     rg_name     = "rg-VSR"
+#     secret_name = "admin-password"
+#   }
+# }

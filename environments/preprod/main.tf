@@ -17,15 +17,15 @@ module "subnets" {
 }
 
 
-module "key_vault" {
-  depends_on = [module.resource_group]
-  source     = "../../modules/azurerm_key_vault"
-  key_vaults = var.key_vaults
-}
+# module "key_vault" {
+#   depends_on = [module.resource_group]
+#   source     = "../../modules/azurerm_key_vault"
+#   key_vaults = var.key_vaults
+# }
 
-module "virtual_machines" {
-  depends_on = [module.subnets, module.key_vault]
-  source     = "../../modules/azurerm_virtual_machine"
-  vms        = var.vms
-}
+# module "virtual_machines" {
+#   depends_on = [module.subnets, module.key_vault]
+#   source     = "../../modules/azurerm_virtual_machine"
+#   vms        = var.vms
+# }
 
