@@ -8,24 +8,42 @@ steps:
 
 - checkout: self
 
+
 - task: TerraformInstaller@1
-  displayName: 'Install Terraform'
   inputs:
     terraformVersion: 'latest'
 
-- task: TerraformCLI@2
-  displayName: 'Terraform Init'
+- task: TerraformTask@5
   inputs:
+    provider: 'azurerm'
     command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/'
+    backendServiceArm: 'keraj_svc'
+    backendAzureRmOverrideSubscriptionID: '83d4cba0-c6b0-4b71-8050-0b7fd5ba5202'
+    backendAzureRmResourceGroupName: 'b18g35-common-rg'
+    backendAzureRmStorageAccountName: 'b18g35storageaccount2'
+    backendAzureRmContainerName: 'vkcontainer'
+    backendAzureRmKey: 'vikasbhai.tfstate'
 
-- task: TerraformCLI@2
-  displayName: 'Terraform Validate'
+- task: TerraformTask@5
   inputs:
+    provider: 'azurerm'
     command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/'
 
-- task: TerraformCLI@2
-  displayName: 'Terraform Plan'
+- task: TerraformTask@5
   inputs:
+    provider: 'azurerm'
     command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/'
     environmentServiceNameAzureRM: 'keraj_svc'
-    commandOptions: '-var-file=terraform.tfvars'
+    environmentAzureRmOverrideSubscriptionID: '83d4cba0-c6b0-4b71-8050-0b7fd5ba5202'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/'
+    commandOptions: '--auto-approve'
+    environmentServiceNameAzureRM: 'keraj_svc'
+    environmentAzureRmOverrideSubscriptionID: '83d4cba0-c6b0-4b71-8050-0b7fd5ba5202'
