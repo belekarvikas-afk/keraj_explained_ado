@@ -2,10 +2,7 @@ trigger:
   - main
 
 pool:
-  vmImage: ubuntu-latest
-
-variables:
-  terraformVersion: 'latest'
+  name: 'Default'
 
 steps:
 
@@ -14,7 +11,7 @@ steps:
 - task: TerraformInstaller@1
   displayName: 'Install Terraform'
   inputs:
-    terraformVersion: '$(terraformVersion)'
+    terraformVersion: 'latest'
 
 - task: TerraformCLI@2
   displayName: 'Terraform Init'
@@ -30,11 +27,5 @@ steps:
   displayName: 'Terraform Plan'
   inputs:
     command: 'plan'
-    environmentServiceName: 'azure-terraform-sc'
-
-- task: TerraformCLI@2
-  displayName: 'Terraform Apply'
-  inputs:
-    command: 'apply'
-    environmentServiceName: 'azure-terraform-sc'
-    commandOptions: '-auto-approve'
+    environmentServiceNameAzureRM: 'keraj_svc'
+    commandOptions: '-var-file=terraform.tfvars'
