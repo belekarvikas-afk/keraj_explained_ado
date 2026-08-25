@@ -1,0 +1,40 @@
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  terraformVersion: 'latest'
+
+steps:
+
+- checkout: self
+
+- task: TerraformInstaller@1
+  displayName: 'Install Terraform'
+  inputs:
+    terraformVersion: '$(terraformVersion)'
+
+- task: TerraformCLI@2
+  displayName: 'Terraform Init'
+  inputs:
+    command: 'init'
+
+- task: TerraformCLI@2
+  displayName: 'Terraform Validate'
+  inputs:
+    command: 'validate'
+
+- task: TerraformCLI@2
+  displayName: 'Terraform Plan'
+  inputs:
+    command: 'plan'
+    environmentServiceName: 'azure-terraform-sc'
+
+- task: TerraformCLI@2
+  displayName: 'Terraform Apply'
+  inputs:
+    command: 'apply'
+    environmentServiceName: 'azure-terraform-sc'
+    commandOptions: '-auto-approve'
