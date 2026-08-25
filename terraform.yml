@@ -16,7 +16,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/'
+    workingDirectory: '$(System.DefaultWorkingDirectory)environments/preprod/environmentsenvironments/preprod/preprod'
     backendServiceArm: 'keraj_svc'
     backendAzureRmOverrideSubscriptionID: '83d4cba0-c6b0-4b71-8050-0b7fd5ba5202'
     backendAzureRmResourceGroupName: 'b18g35-common-rg'
@@ -28,13 +28,13 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'validate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/'
+    workingDirectory: '$(System.DefaultWorkingDirectory)environments/preprod/'
 
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/'
+    workingDirectory: '$(System.DefaultWorkingDirectory)environments/preprod/'
     environmentServiceNameAzureRM: 'keraj_svc'
     environmentAzureRmOverrideSubscriptionID: '83d4cba0-c6b0-4b71-8050-0b7fd5ba5202'
 
@@ -42,7 +42,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/'
+    workingDirectory: '$(System.DefaultWorkingDirectory)environments/preprod/'
     commandOptions: '--auto-approve'
     environmentServiceNameAzureRM: 'keraj_svc'
     environmentAzureRmOverrideSubscriptionID: '83d4cba0-c6b0-4b71-8050-0b7fd5ba5202'
